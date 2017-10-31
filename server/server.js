@@ -17,9 +17,21 @@ var server = http.createServer(app);
 // Setup Socket.io
 var io = socketIO(server);
 
-// Soclet.io event handlers
+// Socket.io event handlers
 io.on("connection", (socket) => {
     console.log("Connected to the client");
+
+    // Event handler for create message
+    socket.on("createMessage", (message) => {
+        console.log("New message created", message);
+
+        // Emitting an event new message
+        socket.emit("newMessage", {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        })
+    });
 
     socket.on("disconnect", () => {
         console.log("Disconnected from the client");
