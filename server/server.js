@@ -28,11 +28,11 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("newMessage", message.generate("Admin", "New user joined"));
 
     // Event handler for create message
-    socket.on("createMessage", (message) => {
-        console.log("New message created", message);
+    socket.on("createMessage", (msg) => {
+        console.log("New message created", msg);
 
         // Emitting an event new message
-        io.emit("newMessage", message.generate(message.from, message.text));
+        io.emit("newMessage", message.generate(msg.from, msg.text));
     });
 
     socket.on("disconnect", () => {

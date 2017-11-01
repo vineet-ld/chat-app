@@ -4,7 +4,15 @@
 </head>
 <body>
     <h1>Welcome to the chat app</h1>
+    <label for="name">Your name: </label><input type="text" id="name" placeholder="Your name">
+    <ol id="chat"></ol>
+
+    <form action="#" id="message-form">
+        <input type="text" name="message" id="message" placeholder="Message">
+        <input type="submit" value="Send">
+    </form>
 </body>
 <script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="/scripts/script.js"></script>
 </html>
