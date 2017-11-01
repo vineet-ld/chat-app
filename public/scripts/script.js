@@ -26,6 +26,7 @@ $(document).ready(function() {
             from: $("#name").val() || "User",
             text: $("#message").val()
         });
+        $("#message").val("");
     });
 
 });
