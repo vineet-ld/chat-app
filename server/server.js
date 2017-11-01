@@ -35,6 +35,10 @@ io.on("connection", (socket) => {
         io.emit("newMessage", message.generate(msg.from, msg.text));
     });
 
+    socket.on("locationMessage", (location) => {
+        io.emit("newLocationMessage", message.generateLocationMessage(location.from, location.latitude, location.longitude));
+    });
+
     socket.on("disconnect", () => {
         console.log("Disconnected from the client");
     });
